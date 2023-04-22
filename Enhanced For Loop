@@ -1,0 +1,13 @@
+package array;
+
+public class Enhanced_for_Loop {
+	
+	public static void main(String[] args)
+	{
+		int nums[]= {5,3,6,7};
+     for(int n : nums)
+     {
+    	 System.out.print(n);
+     }
+	}
+}
