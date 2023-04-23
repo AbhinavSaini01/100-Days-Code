@@ -1,0 +1,69 @@
+#include<stdio.h>
+
+int AscendingBinarySearch(int arr[],int start,int end ,int target)
+{
+    while(start<=end)
+    {
+        int mid= start+(end-start)/2;
+        
+        if(arr[mid]==target)
+        {
+            return mid;
+        }
+        else if(arr[mid]>target)
+        {
+            end= mid-1;
+        }
+       else
+       {
+         start=mid+1;     
+       }
+        
+    }
+    return -1;
+}
+
+int DescendingBinarySearch(int arr[],int start,int end ,int target)
+{
+    while(start<=end)
+    {
+        int mid= (start+end)/2;
+        
+        if(arr[mid]==target)
+        {
+            return mid;
+        }
+        else if(arr[mid]>target)
+        {
+            start=mid+1;
+        }
+        else
+        {
+            end=mid-1;
+        }
+    }
+    return -1;
+}
+
+void main()
+{
+   // int arr[]={1,2,3,4,5,6,7,8};
+    int arr[]={8,7,6,5,4,3,2,1};
+    int length,target,result1,result2;
+    length=sizeof(arr)/sizeof(arr[0]);
+    printf("Enter target value");
+    scanf("%d",&target);
+
+        if(arr[0]<arr[1])
+        {
+            result1=AscendingBinarySearch( arr,0,length-1,target);
+            printf("%d",result1);
+        }
+        else
+        {
+            result2=DescendingBinarySearch( arr,0,length-1,target);
+            printf("%d",result2);
+        }
+        
+    
+}
