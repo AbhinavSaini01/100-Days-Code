@@ -1,0 +1,42 @@
+#include<stdio.h>
+
+int BinarySearch(int arr[],int start,int end ,int target)
+{
+    while(start<=end)
+    {
+        int mid= (start+end)/2;
+        
+        if(arr[mid]==target)
+        {
+            return mid;
+        }
+        else if(arr[mid]>target)
+        {
+            start=mid+1;
+        }
+        else
+        {
+            end=mid-1;
+        }
+    }
+    return -1;
+}
+
+void main()
+{
+    int arr[]={20,18,16,14,12,10};
+    int length,target,result;
+    length=sizeof(arr)/sizeof(arr[0]);
+    printf("Enter target value");
+    scanf("%d",&target);
+    result=BinarySearch(arr,0,length-1,target);
+    
+    if(result== -1)
+    {
+        printf("Element not founnd");
+    }
+    else
+    {
+        printf("Element is found at index %d",result);
+    }
+}
