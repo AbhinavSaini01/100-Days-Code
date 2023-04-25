@@ -1,0 +1,67 @@
+#include<stdio.h>
+
+int FirstOccurence(int arr[],int start,int end,int target)
+{
+    int First;
+    while(start<=end)
+    {
+        int mid = start+(end-start)/2;
+        
+        if(arr[mid]==target)
+        {
+            First=mid;
+            end=mid-1;
+        }
+        else if(arr[mid]>target)
+        {
+            end=mid-1;
+        }
+        else
+        {
+            start=mid+1;
+        }
+    }
+ return First;
+}
+
+int LastOccurence(int arr[], int start, int end,int target)
+{
+    int Last;
+    while(start<=end)
+    {
+        int mid = start+(end-start)/2;
+        
+        if(arr[mid]==target)
+        {
+            Last=mid;
+            start=mid+1;
+        }
+        else if(arr[mid]>target)
+        {
+            end=mid-1;
+        }
+        else
+        {
+            start=mid+1;
+        }
+        
+    }
+ return Last;
+}
+
+void main()
+{
+    int arr[]={1,2,3,3,3,4,4,4,4,4,5};
+    int target,length,First,Last,result,Result1,Result2;
+    length=sizeof(arr)/sizeof(arr[0]);
+    printf("\n Enter target value");
+    scanf("%d",&target);
+   Result1= FirstOccurence(arr,0,length-1,target);
+   Result2=  LastOccurence(arr,0,length-1,target);
+    
+    result= Result2-Result1+1;
+    
+    
+    printf("%d",result);
+
+}
