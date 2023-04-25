@@ -1,0 +1,35 @@
+#include <stdio.h>
+void main()
+{
+    int i,j;
+    int r;
+  int a[3][3];
+  void inputmatrix (int[3][3], int, int);
+  void outputmatrix (int[3][3], int, int);
+  inputmatrix(a,3,3);
+  outputmatrix(a,3,3);
+}
+void inputmatrix(int[3][3], int r, int c)
+{  
+    int a[3][3];
+    for(int i=0;i<r;i++)
+    {
+        for(int j=0;j<c;j++)
+        {
+            printf("enter value %d %d", i,j);
+            scanf("%d",& a[i][j]);
+        }
+    }
+}
+    void outputmatrix(int[3][3], int r, int c)
+{
+    int a[3][3];
+    for(int i=0;i<r;i++)
+    {
+        for(int j=0;j<c;j++)
+        {
+            printf("%d", a[i][j]);
+        }
+        printf("\n");
+    }
+}
