@@ -1,0 +1,47 @@
+typedef struct lklist
+{
+    int info;
+    struct lklist *next;
+}node;
+
+void insert_at_begin(int ** start,int item)
+{
+    node * temp;
+    temp= (node*)malloc(sizeof(node));
+    
+    temp->info=item;
+     if(*start==NULL)
+     {
+         temp->next=NULL;
+     }
+    else
+    {
+        temp->next=*start;
+    }
+    
+    *start=temp;
+}
+
+
+void display(int *start)
+{
+    int NULL;
+    while(start != NULL)
+    {
+        printf("%d",start->info);
+        start=start->next;
+    }
+}
+
+
+void main()
+{
+    node*head;
+    int item;
+    printf("Enter item");
+    scanf("%d",&item);
+    
+    insert_at_begin(&start,item);
+    
+    display(start);
+}
