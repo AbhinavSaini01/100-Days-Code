@@ -1,0 +1,87 @@
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+
+typedef struct lklist
+{
+    int info;
+    struct lklist *next;
+}node;
+
+
+
+node *search(node*start,int after_item)
+{
+
+    while(start!=NULL)
+    {
+        if (start->info==after_item)
+        {
+            return start;
+        }
+        start=start->next;
+    }
+    return NULL;
+}
+
+
+void display(node*start)
+{
+    while(start!=NULL)
+    {
+        printf("%d",start->info);
+        start=start->next;
+    }
+}
+
+
+void insert_after(node **start,int item)
+{
+    int after_item;
+    node * temp,*loc;
+    
+    
+    printf("enter after item");
+    scanf("%d",&after_item);
+    
+    loc=search(*start,after_item);
+    
+    temp=(node*)malloc(sizeof(node));
+    
+    
+    
+    temp->info=item;
+    
+  
+    
+        temp->next=(loc->next);
+        loc->next=temp;
+}
+
+
+void main()
+{
+   
+    
+    node*start;
+    node*second;
+    node*third;
+    
+    start=(node*)malloc(sizeof(node));
+    second=(node*)malloc(sizeof(node));
+    third=(node*)malloc(sizeof(node));
+    
+    start->info=3;
+    start->next=second;
+    
+    second->info=4;
+    second->next=third;
+    
+    third->info=5;
+    third->next=NULL;
+
+    insert_after(&start,9);
+    display(start);
+    
+    
+}
