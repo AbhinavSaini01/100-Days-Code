@@ -1,0 +1,14 @@
+package string;
+
+public class Final_keyword {
+
+	public static void main(String[] args)
+	{
+		final StringBuffer sb=new StringBuffer ("virat");
+		sb.append("Kohli");
+		System.out.println(sb);
+		
+		sb =new StringBuffer("Sachin"); /*using final keyword reference variable can't used yo refer new obj. */ 
+		System.out.println(sb);
+	}
+}
