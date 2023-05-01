@@ -1,0 +1,18 @@
+package string;
+
+public class Mutable_String {
+	
+	public static void main(String[] args)
+	{
+		StringBuffer sb=new StringBuffer("virat");
+		
+		System.out.println(sb);
+		
+		sb.append("kohli"); /*when kohli is added to virat no new object is created 
+							  all changes is reflected in same object,
+							  StringBuffer and StringBuilder is used for that.*/
+		
+		System.out.println(sb);
+	}
+
+}
