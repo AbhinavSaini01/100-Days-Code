@@ -1,0 +1,39 @@
+package string;
+
+public class Builder_Buffer {
+	
+	public static void main(String[] args)
+	{
+		StringBuilder sb = new StringBuilder();
+		System.out.println(sb.capacity());
+		sb.append("abcdefghimnopqrs");
+		System.out.println(sb.capacity());
+		sb.append("s");
+		System.out.println(sb.capacity());
+		System.out.println(sb.length());
+		
+		
+		
+        StringBuffer sb2= new StringBuffer("Sachin");
+        System.out.println(sb2);
+        System.out.println(sb2.capacity());
+        System.out.println(sb2.charAt(1));
+        sb2.setCharAt(1,'A');
+        System.out.println(sb2);
+        
+        
+        StringBuilder sb3 = new StringBuilder(150);
+        System.out.println(sb3.capacity());
+        sb3.append("java");
+        System.out.println(sb3);
+        sb3.trimToSize();
+        System.out.println(sb3.capacity());
+        
+
+        StringBuilder sb4 = new StringBuilder("PWJava");
+        System.out.println(sb4);
+        System.out.println(sb4.reverse());
+        
+	}
+
+}
