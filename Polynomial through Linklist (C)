@@ -1,0 +1,98 @@
+#include<stdio.h>
+typedef struct polynomial{
+	int coefficient;
+	int power;
+	struct polynomial *next;
+}poly;
+void main()
+{ int t,c,co,po;
+	poly *p1=NULL,*p2=NULL,*p3=NULL;
+	//p1=p2=p3=NULL;
+	void insertion(poly **,int,int);
+	void traversing(poly *);
+	void addition(poly *,poly *,poly);//c=a+b
+	printf("enter polynomial one \n");
+	printf("how many terms on first polynomail\n");
+	scanf("%d",&t);
+	printf("please enter the polynomial in higher order");
+	for(c=1;c<=t;c++)
+	{
+		printf("enter coefficient of term %d\n ",c);
+		scanf("%d",&co);
+		printf("enter power of term %d \n" ,c);
+		scanf("%d",&po);
+		insertion(&p1,co,po);
+	}
+	traversing(p1);
+		printf("enter polynomial second \n");
+	printf("how many terms in second polynomail\n");
+	scanf("%d",&t);
+	printf("please enter the polynomial in higher order");
+	for(c=1;c<=t;c++)
+	{
+		printf("enter coefficient of term %d\n",c);
+		scanf("%d",&co);
+		printf("enter power of term %d\n" ,c);
+		scanf("%d",&po);
+		insertion(&p2,co,po);
+	}
+	//traversing(p1);
+        traversing(p2);
+      addition(&p3,p1,p2);
+       printf("result after addition\n");
+        traversing(p3);	
+}
+void insertion(poly **h,int c,int p)
+{
+	poly *temp;
+	temp=(poly*)malloc(sizeof(poly));
+	temp->coefficient=c;
+	temp->power=p;
+	temp->next=*h;
+	*h=temp;
+}
+void traversing(poly *head)
+{
+	printf("\n");
+	while(head!=NULL)
+	{
+		printf("%dx^%d +",head->coefficient,head->power);
+		head=head->next;
+	}
+	printf("\b ");
+	
+	
+}
+void addition(poly **h3,poly *h1,poly *h2)
+{
+	while((h1!=NULL)&&(h2!=NULL))
+	{
+		if(h1->power==h2->power)
+		{
+			insertion(h3,(h1->coefficient+h2->coefficient),h1->power);
+			h1=h1->next;
+			h2=h2->next;
+		}
+		else if( (h1->power)>(h2->power))
+		{
+			insertion(h3,h1->coefficient,h1->power);
+			h1=h1->next;
+		}
+		else if(h2->power>h1->power)
+		{
+			insertion(h3,h2->coefficient,h2->power);
+			h2=h2->next;
+		}
+	}
+	poly *t;
+	t=*h3;
+	while(t->next!=NULL) //travesre resultatnt polynomial till last node
+		t=t->next;
+	if(h1==NULL && h2!=NULL)
+	{
+		t->next=h2;  //concatination second polynomial with resultant polynomial
+	}
+	else if(h2==NULL && h1!=NULL){
+		t->next=h1;  //concatination first polynomial with resultant polynomial
+	}
+	}
